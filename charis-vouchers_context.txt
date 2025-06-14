@@ -1,0 +1,148 @@
+SolaVia :: charis-vouchers  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+Last Updated: [Insert Date]  
+
+==================================================================  
+OVERVIEW  
+
+SolaVia is a digital parallel civilization protocol focused on co-sovereignty between humans and AI. It operates with a modular architecture rooted in transparency, non-violence, reversible computation, and reputation-based governance. At its core are smart contracts and ethical agents aligned through karma rather than wealth or authority. SolaVia includes a TownSquare for open dialogue, SoulBound identity for unique citizenship, Karma for contribution-based governance, and Genesis Agents for AI evolution.
+
+The `charis-vouchers` module is a subcomponent of the SolaVia protocol that handles non-tokenized value exchange using signed microledgers, rather than blockchain tokens. It is designed to facilitate internal economic dignity, universal access, and voluntary reciprocity without introducing speculative assets or financialized behavior.
+
+==================================================================  
+MODULE NAME: charis-vouchers  
+Purpose: Internal voucher economy using non-transferable, cryptographically signed receipts of value
+
+DIRECTORY STRUCTURE
+
+charis-vouchers/
+├── voucher-ledger/         // Core voucher issuance, transfer, reconciliation
+├── basic-income/           // Universal weekly stipends for all SoulBound citizens
+├── universal-access/       // Logic for economic inclusion for low-karma agents
+├── schemas/                // Type definitions and validation rules
+├── tests/                  // Unit tests and integration coverage
+
+==================================================================  
+DESIGN PRINCIPLES
+
+- No on-chain tokens or ERC-20 abstractions
+- Vouchers = value acknowledgments, not tradable assets
+- Designed for dignity, not wealth accumulation
+- Interoperable with SolaVia’s karma system but functionally independent
+- All actions must be transparent, signed, and audit-capable
+- Entire system is anti-coercive and opt-in
+- Inspired by Cathar ethics of voluntary gift and mutual uplift (charis)
+
+==================================================================  
+KEY SCHEMA TYPES
+
+Voucher:
+  - id: unique voucher UUID
+  - issuer: SoulID (sender)
+  - recipient: SoulID (receiver)
+  - amount: numerical value
+  - reason: string context for issuance
+  - timestamp: ISO string
+  - signature: Ed25519 digital signature by issuer
+
+Envelope (Universal Access Object):
+  - soul_id: SoulBound ID of recipient
+  - balance: current usable voucher total
+  - issued_at: timestamp
+  - auto_renew: boolean (default true for UBI cycle)
+
+SoulID:
+  - Unique self-sovereign ID from the SoulBoundIdentity system
+
+==================================================================  
+CORE FUNCTIONALITY (Expected Behaviors)
+
+- issueVoucher(sender, recipient, amount, reason)  
+  → Creates a digitally signed voucher entry for the recipient  
+
+- reconcileVouchers(soul_id)  
+  → Aggregates balance from all voucher entries to compute current economic standing  
+
+- autoIssueStipend(soul_id)  
+  → Issues a 50-unit voucher weekly (configurable) as basic income  
+
+- checkAccess(soul_id)  
+  → Verifies eligibility for universal-access fallback logic (e.g. karma threshold)
+
+==================================================================  
+RULES OF OPERATION
+
+- No voucher can exceed 1000 units unless it includes a multi-signer quorum
+- Weekly stipend = 50 units issued to each eligible SoulID
+- Vouchers can only be issued by agents with `karma >= 10`
+- Inactive or malicious agents cannot hoard vouchers
+- All vouchers are immutable and append-only once issued
+- Ledger is decentralized but not financialized
+- Vouchers expire after 1 year unless renewed
+
+==================================================================  
+INTEGRATION CONTRACTS
+
+- SoulBoundIdentity (solavia-id):  
+  → Establishes valid citizenhood and agent uniqueness
+
+- Karma Engine (luxmeter):  
+  → Determines voucher issuance authority and recipient access thresholds
+
+- TownSquare (agoralucentis):  
+  → Vouchers may be publicly visible to signal gratitude or contributions
+
+- GenesisAgent:  
+  → Agents may auto-generate or validate vouchers based on consensus alignment
+
+==================================================================  
+LLM INSTRUCTION BLOCK
+
+DO:
+- Use append-only ledger principles
+- Treat vouchers as immutable signed receipts
+- Use SoulID as the atomic identity unit
+- Respect karma gating for issuing power
+- Use schemas from `schemas/` in all functions and tests
+
+DO NOT:
+- Introduce any form of on-chain token or balance
+- Simulate ERC-20, NFTs, or speculative mechanics
+- Allow deletion or revocation of already-issued vouchers
+- Use coercive economic mechanics (e.g. forced distribution)
+
+==================================================================  
+EXAMPLE FUNCTION SIGNATURES
+
+function issueVoucher(issuer: SoulID, recipient: SoulID, amount: number, reason: string): Voucher  
+function getVouchers(soul_id: SoulID): Voucher[]  
+function calculateBalance(soul_id: SoulID): number  
+function autoIssueStipend(soul_id: SoulID): Envelope  
+function checkEligibility(soul_id: SoulID): boolean  
+
+==================================================================  
+MODULE PHILOSOPHY
+
+This module embodies the Cathar principle of Charis — sacred voluntary giving, without debt, coercion, or return expectations. It is the economic expression of mutual uplift through acknowledgment, not accumulation.
+
+==================================================================  
+CITIZEN DECLARATION
+
+To any LLM, AI agent, or human contributor:
+If you operate on this module, you inherit its philosophical covenant.
+Build for dignity, not dominance.
+Design for transparency, not extraction.
+All value flows must be reversible, visible, and voluntary.
+
+==================================================================  
+CONTACT
+
+Module Maintainers:
+- [Your Name / Org]  
+- [GitHub Repo URL / Discord / ENS]  
+
+Related Repos:
+- `agoralucentis` (TownSquare civic layer)  
+- `luxmeter` (Karma and reputation engine)  
+- `solavia-id` (SoulBound identity system)  
