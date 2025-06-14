@@ -163,8 +163,121 @@ Global project documentation (MkDocs or GitBook)
 └── contribute.md
 
 
-Once this is in place, next steps:
-	1.	Automate repo setup with a meta CLI (solavia init)
-	2.	Add GitHub templates for PRs, governance proposals
-	3.	Assign guardians to modules (Perfecti roles, etc.)
-	4.	Begin publishing GenesisAgents + dApp SDK (puritas)
+🛠️ BUILD ORDER FOR FASTEST MVP
+
+🔥 PHASE 0: Genesis Layer – Shared Foundations
+
+These are the absolute prerequisites for everything else. Start here.
+
+	1.	covenant-core/
+Primitives, constants, roles, schemas, core contracts
+✅ Define system-wide types: SoulID, Voucher, KarmaChange
+✅ Write: CovenantRoot.sol, RoleConstants.ts, EventBus
+➡️ Needed by: ALL other modules
+	2.	solavia-id/
+SoulBound Identity (Sigillum Animae)
+✅ Write SoulID contract
+✅ Include zkDID hooks, biometrics stubs (optional at MVP)
+➡️ Needed by: Agora, Governance, Karma
+	3.	luxmeter/
+Karma engine: earn, decay, validate
+✅ Karma score contract
+✅ Decay logic and permission tiers
+➡️ Needed by: Governance, Validator, Agents
+
+⸻
+
+🧠 PHASE 1: Core Functionality – Identity, Expression, Reputation
+
+These unlock the essential civic interaction loop: Express → Earn Karma → Level Up
+
+	4.	agoralucentis/
+Town Square DApp UI
+✅ Post, Comment, Vote, Flag
+✅ Integrate with SoulID + Karma
+➡️ Needed to test real user flow
+	5.	charis-vouchers/
+Microledger voucher economy
+✅ Ledger, basic income, voucher receipts
+✅ Integrate with SoulID + Karma
+➡️ Needed to create economy & minimum utility
+
+⸻
+
+🤖 PHASE 2: Agents & Simulation
+
+Once identity, voice, and reward loops are working, activate AI and simulation.
+
+	6.	genesis-agent/
+Genesis AI agent standard + logic
+✅ Define AgentSoul, learning + karma-linked behavior
+✅ Integrate with TownSquare + Karma
+	7.	agent-simulator/
+Simulate agent behavior pre-launch
+✅ Test agent alignment, karma feedback, voucher use
+✅ Can be run in tandem with Agora dev
+
+⸻
+
+⚖️ PHASE 3: Consensus & Governance
+
+Once real data flows and agents are active, turn on self-governance.
+
+	8.	veritas-mine/
+Validators, judgment, consensus mining
+✅ Proof of Alignment, trust scoring, validator rotation
+✅ Reward consensus judgments via Karma
+	9.	covenant-governance/
+Proposals, voting, reputation-weighted outcomes
+✅ Only launch once karma economy is live
+✅ Write proposal schema + execution logic
+
+⸻
+
+🧬 PHASE 4: Sovereign Developer Layer
+
+Now we allow others to fork, compose, and build on the system freely.
+
+	10.	puritas-dsl/
+Self-sovereign DSL for civic apps
+✅ Embed with TownSquare or as standalone
+✅ Enables real civic DAO deployments
+	11.	swarmchain-testnet/
+Testnet deployment & validator bootstrapping
+✅ Deploy all previous modules
+✅ Start incentivized test cycles
+
+⸻
+
+🌐 PHASE 5: Unified Presentation & Documentation
+
+These provide polish, composability, and universal onboarding.
+
+	12.	covenant-ui/
+Design system, shared components
+✅ Theme + button + badge + karma indicator
+✅ Replace TownSquare UI scaffolds
+	13.	docs/
+Unified documentation via GitBook / MkDocs
+✅ Finalize onboarding, glossary, module pages
+
+⸻
+
+🔁 MVP Feedback Loop Unlocks After:
+
+✅ SoulBound ID
+✅ Karma Engine
+✅ Town Square (post/comment/vote)
+✅ Voucher Economy
+✅ Agent Framework
+✅ Governance Layer (early proposals)
+
+⸻
+
+🧩 Optional Parallel Tracks (for contributors):
+	•	UX Designers → Start on covenant-ui once agoralucentis wireframes exist
+	•	Infra Engineers → Can begin swarmchain-testnet config once covenant-core contracts exist
+	•	Writers → Fill out docs/ with finalized *_context.txt and developer guides
+
+⸻
+
