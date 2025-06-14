@@ -1,6 +1,6 @@
 🌐 Top-Level GitHub Organization Layout
 
-solavia-org/
+solavia-System/
 ├── introduction/           ← Lightpaper, manifesto, docs
 ├── covenant-core/          ← Core protocols, primitives, chain logic
 ├── solavia-id/             ← SoulBound ID (Sigillum Animae)
