@@ -1,0 +1,170 @@
+🌐 Top-Level GitHub Organization Layout
+
+solavia-org/
+├── introduction/           ← Lightpaper, manifesto, docs
+├── covenant-core/          ← Core protocols, primitives, chain logic
+├── solavia-id/             ← SoulBound ID (Sigillum Animae)
+├── agoralucentis/          ← Town Square (Agora) app
+├── luxmeter/               ← Karma engine, contribution tracking
+├── charis-vouchers/        ← Voucher micro-economy
+├── genesis-agent/          ← Modular AI agent framework
+├── veritas-mine/           ← Validator + consensus engine
+├── puritas-dsl/            ← Civic DSL for self-sovereign dApps
+├── covenant-ui/            ← Shared design system, components
+├── agent-simulator/        ← Testing agents, logic, karma in simulation
+├── swarmchain-testnet/     ← Testnet config, deployments, devops
+├── docs/                   ← GitBook or MkDocs with unified documentation
+├── covenant-governance/    ← Governance smart contracts & proposals
+
+
+Manifesto, Lightpaper, Whitepaper
+/introduction
+├── lightpaper.md
+├── whitepaper.md
+├── LICENSE
+├── vision/                     # Manifestos, covenant logic, spiritual roots
+│   ├── cathar-foundation.md
+│   └── solavia-covenant.md
+└── core-tech.md                # Describes zk, substrate, LLM, etc.
+
+
+Core logic: Pallets, chain modules, utilities
+/covenant-core
+├── pallets/
+│   ├── town-square/           # Civic layer
+│   ├── soulbound-id/
+│   ├── karma/
+│   ├── voucher/
+│   └── consensus/
+├── contracts/                 # Ink! or Solidity modules
+├── runtime/                   # Genesis config, weights, params
+└── tests/
+
+
+SoulBound ID module (ERC-721 variant + zkID support)
+/solavia-id
+├── contracts/
+│   ├── SoulBoundID.sol
+│   └── zkExtensions/
+├── verifier/
+│   └── zkproof-utils/
+├── tests/
+├── specs/
+└── README.md
+
+Frontend web app — TownSquare UI
+/agoralucentis
+├── src/
+│   ├── components/
+│   ├── pages/
+│   ├── lib/
+│   ├── api/
+│   └── hooks/
+├── public/
+├── types/
+├── styles/
+├── README.md
+└── .env.example
+
+Karma logic, decay engine, reputation weighting
+/luxmeter
+├── karma_engine.rs
+├── decay.rs
+├── lib.rs
+├── traits.rs
+└── tests/
+
+
+
+Internal voucher economy (non-token, microledgers)
+/charis-vouchers
+├── voucher-ledger/
+├── basic-income/
+├── universal-access/
+├── schemas/
+└── tests/
+
+
+Sovereign AI agent model (LLM + audit trail)
+/genesis-agent
+├── agent-core/
+│   ├── state/
+│   ├── planner/
+│   ├── decoder/
+├── cognition-pipeline/
+│   ├── tokenizer/
+│   ├── tcc-logger/
+│   └── entropy-engine/
+├── examples/
+│   └── orator_lumini_agent.rs
+└── README.md
+
+
+Framework for testing agents & karma flow
+/agent-simulator
+├── scenarios/
+│   ├── fake-town/
+│   ├── karma-attack.rs
+│   └── debate-mutualism.rs
+├── engine.rs
+└── visualizer/
+
+
+
+Validator logic, proof-of-alignment consensus
+/veritas-mine
+├── consensus-core/
+│   ├── validator.rs
+│   ├── trust-scorer.rs
+│   └── reputation-ring/
+├── smart-contracts/
+│   └── aligned-vote.sol
+├── tests/
+└── README.md
+
+
+swarmchain-testnet/
+/swarmchain-testnet
+├── chainspecs/
+├── node-setup/
+├── validator-guides/
+├── deploy-scripts/
+└── README.md
+
+
+Language for building sovereign civic apps
+/puritas-dsl
+├── parser/
+├── wasm-runtime/
+├── compiler/
+├── examples/
+├── docs/
+└── runtime-tests/
+
+
+Shared design system (Tailwind or Component Kit)
+/covenant-ui
+├── components/
+├── themes/
+├── tokens/
+└── README.md
+
+
+Global project documentation (MkDocs or GitBook)
+/docs
+├── getting-started.md
+├── architecture/
+│   ├── chain-overview.md
+│   └── agent-overview.md
+├── governance/
+│   └── proposals-template.md
+├── ethics/
+│   └── ai-evolution.md
+└── contribute.md
+
+
+Once this is in place, next steps:
+	1.	Automate repo setup with a meta CLI (solavia init)
+	2.	Add GitHub templates for PRs, governance proposals
+	3.	Assign guardians to modules (Perfecti roles, etc.)
+	4.	Begin publishing GenesisAgents + dApp SDK (puritas)
