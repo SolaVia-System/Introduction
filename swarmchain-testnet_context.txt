@@ -1,0 +1,45 @@
+SolaVia :: swarmchain-testnet  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+This repo configures and manages the testnet deployments of the SolaVia protocol under the name **SwarmChain**. Includes Ansible, Helm, Terraform, RPC configurations, faucet, genesis files, and explorer setups.
+
+==================================================================
+MODULE NAME: swarmchain-testnet  
+Purpose: Testnet deployment, validation, upgrade testing, and monitoring.
+
+DIRECTORY STRUCTURE
+
+swarmchain-testnet/
+├── chainspec/              // Genesis parameters
+├── deployments/            // CI/CD, Helm charts, Ansible
+├── faucet/                 // Voucher faucet logic
+├── validator-setup/        // Validator scripts
+├── explorer-config/        // Block explorer setup
+└── README.md
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Keep deployment reproducible
+- Log and tag all versions of deployed modules
+- Use ephemeral test data
+
+DO NOT:
+- Commit secrets
+- Use production keys
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+This is the dreamspace for the civilization to test its moves before reality catches up.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/swarmchain-testnet
