@@ -1,0 +1,52 @@
+SolaVia :: covenant-ui  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+The `covenant-ui` module is the unified visual language and component library for all UIs in SolaVia. It encodes Sovereign Design Principles into a reusable design system (Tailwind / Radix / Web Components) shared across apps.
+
+==================================================================
+MODULE NAME: covenant-ui  
+Purpose: Create shared design tokens, layout components, and UI logic used by all frontends (Agora, Admin Dash, Voucher Portal, etc.)
+
+DIRECTORY STRUCTURE
+
+covenant-ui/
+├── components/             // Buttons, dialogs, modals, cards
+├── primitives/             // Typography, spacing, tokens
+├── themes/                 // Light/dark/ritual themes
+├── tailwind.config.js
+├── storybook/
+├── README.md
+
+==================================================================
+DESIGN PRINCIPLES
+
+- Accessible, spiritual, minimalist
+- Every component traces back to a Covenant value
+- Shared via NPM or Git submodule to all other UIs
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Export accessible, testable, themeable components
+- Keep state isolated—no logic in visuals
+- Ensure clear mapping to SolaVia language
+
+DO NOT:
+- Hardcode assumptions about app logic
+- Mix data logic and UI logic
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+Form is never neutral. The Covenant must shine visibly through interface design.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/covenant-ui
