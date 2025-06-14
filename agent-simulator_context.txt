@@ -1,0 +1,52 @@
+SolaVia :: agent-simulator  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+The `agent-simulator` repo creates controlled, repeatable simulations of agents interacting in the SolaVia ecosystem. It allows testing karma logic, behavior loops, voucher issuance, and validator rotations in local contexts.
+
+==================================================================
+MODULE NAME: agent-simulator  
+Purpose: Enable local simulation of complex agent logic and karma flow before on-chain deployment.
+
+DIRECTORY STRUCTURE
+
+agent-simulator/
+├── fixtures/               // Example agent configurations
+├── sim-engine/             // Core simulation loop logic
+├── adapters/               // Mocked interfaces for other modules
+├── notebooks/              // Visual logs and analysis
+├── charts/                 // Graphviz or D3 visualizers
+└── README.md
+
+==================================================================
+DESIGN PRINCIPLES
+
+- Simulate before deploying—test karma loops and vote impact
+- All simulations produce full lineage logs
+- Enable parameter tuning for agent learning and evolution
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Use karma changes to drive agent state
+- Log all mutations and event interactions
+- Support both human and AI actors
+
+DO NOT:
+- Skip logging
+- Hardcode agent behavior
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+Before agents act in the world, they must face the mirror of simulated consequence.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/agent-simulator
