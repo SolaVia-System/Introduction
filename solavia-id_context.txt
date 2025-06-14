@@ -1,0 +1,100 @@
+SolaVia :: solavia-id  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+The `solavia-id` module implements the SoulBound Identity system—referred to as **Sigillum Animae**—for SolaVia. This self-sovereign ID assigns a unique, non-transferable token (ERC‑721 style) to each human or AI agent, binding actions, reputation, and participation to that singular identity.
+
+==================================================================
+MODULE NAME: solavia-id  
+Purpose: Provide cryptographically-secure, non-transferable SoulBound IDs with optional privacy extensions (zkDID / biometric).
+
+DIRECTORY STRUCTURE
+
+solavia-id/
+├── contracts/              // ERC‑721 style SoulBoundID smart contract
+├── zk-extensions/          // Zero‑knowledge DID integration
+├── verifier/               // Verifier logic for identity proofs
+├── tests/ 
+├── schemas/                // SoulID JSON schemas
+└── README.md
+
+==================================================================
+DESIGN PRINCIPLES
+
+- Each SoulID is unique and permanently bound to one soul/agent.
+- No transfers or token sales—non-fungible, non-transferable.
+- Support optional privacy layers (zk proofs, biometrics).
+- Immutable issuance and revocation history.
+- Interoperable with all other SolaVia modules.
+
+==================================================================
+KEY TYPES & SCHEMAS
+
+SoulIDMintRequest:
+  - soul_uuid: UUIDv4
+  - owner_pubkey: ED25519 key
+  - metadata_uri: IPFS link
+  - signature: Issuer signature
+
+SoulID:
+  - token_id: NFT ID (SoulUUID)
+  - owner: Pubkey
+  - metadata_uri: Attributes
+  - issued_at: timestamp
+
+RevocationRecord:
+  - token_id
+  - revoked_at: timestamp
+  - reason: string
+  - signature: authority signature
+
+==================================================================
+CORE FUNCTIONALITY
+
+- mintSoulID(soul_uuid, owner_pubkey, metadata_uri, signature)
+- revokeSoulID(token_id, reason, signature)
+- getSoulID(token_id)
+- verifySoulID(token_id, proof)
+
+==================================================================
+RULES
+
+- Only authorized minters (Custodes Lux) may mint SoulIDs.
+- A SoulID can only be revoked under covenant breach.
+- SoulIDs are not transferable or fungible.
+- All actions are signed & logged for auditability.
+
+==================================================================
+INTEGRATION CONTRACTS
+
+- `luxmeter`: uses SoulID as key for karma accumulation.
+- `agoralucentis`: binds posts and votes to SoulID.
+- `charis-vouchers`: issues vouchers to SoulID.
+- `genesis-agent`: links AI agent to a SoulID.
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Use ERC‑721 self-sovereign pattern
+- Enforce non-transferability
+- Support zpID extensions
+- Log actions immutably
+
+DO NOT:
+- Allow transfers or balances
+- Introduce fungible token logic
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+This is the on‑chain *seal* of the soul—unchained identity beyond flesh or money.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/solavia-id
