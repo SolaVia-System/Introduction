@@ -1,0 +1,45 @@
+SolaVia :: covenant-governance  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+This module encodes the sovereign governance logic of SolaVia. Includes smart contracts, proposals, voting systems, council roles, proposal lifecycle stages, and karma thresholds.
+
+==================================================================
+MODULE NAME: covenant-governance  
+Purpose: Manage proposals, voting, execution logic, and evolving policy rules in on-chain governance.
+
+DIRECTORY STRUCTURE
+
+covenant-governance/
+├── contracts/              // Proposal, Voting, Council logic
+├── schemas/
+├── proposals/              // Example governance proposals
+├── roles/                  // Custodes Lux, Oraculi, Vox Populi
+├── rules/                  // Proposal thresholds and triggers
+└── README.md
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Use karma score thresholds for proposal logic
+- Require SoulID and signature for all governance acts
+- Use clear enums for proposal lifecycle
+
+DO NOT:
+- Rely on coin stake
+- Obscure execution flow
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+Governance is shared breath. It must be traceable, sacred, and irreversible once consented.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/covenant-governance
