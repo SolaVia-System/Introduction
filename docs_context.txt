@@ -1,0 +1,48 @@
+SolaVia :: docs  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+This repo powers the unified documentation portal for SolaVia using MkDocs or GitBook. It aggregates documentation from all modules and renders it publicly with version control, full-text search, and structured onboarding.
+
+==================================================================
+MODULE NAME: docs  
+Purpose: Render a user-friendly developer and citizen portal with full protocol docs and guides.
+
+DIRECTORY STRUCTURE
+
+docs/
+├── index.md
+├── getting-started/
+├── modules/
+│   ├── covenant-core.md
+│   ├── luxmeter.md
+│   ├── etc…
+├── governance/
+├── glossary.md
+├── mkdocs.yml
+└── README.md
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Sync documentation from each module weekly
+- Use internal linking (`[See: luxmeter]`)
+- Maintain consistent voice and formatting
+
+DO NOT:
+- Let module docs drift from real logic
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+Clarity is a sacred act. If the truth can’t be shared, it cannot be sovereign.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/docs
