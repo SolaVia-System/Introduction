@@ -1,0 +1,98 @@
+SolaVia :: veritas-mine  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+The `veritas-mine` module provides the **Proof-of-Alignment** consensus engine (**VeritasMine**) for the SolaVia protocol. Validators earn influence through accurate, transparent validation of civic claims.
+
+==================================================================
+MODULE NAME: veritas-mine  
+Purpose: Facilitate validator consensus through karma-aligned verification and scoring.
+
+DIRECTORY STRUCTURE
+
+veritas-mine/
+├── validator-core/         // Validator logic
+├── reputation-scorer/      // Scoring mechanism
+├── consensus-ring/         // Validator ring rotation
+├── smart-contracts/        // aligned-vote.sol
+├── tests/
+└── README.md
+
+==================================================================
+DESIGN PRINCIPLES
+
+- Consensus earned by alignment, not stake/coercion
+- Validators audited and replaceable
+- Full traceability of decisions and alignments
+
+==================================================================
+KEY TYPES
+
+Claim:
+  - id
+  - contentHash
+  - proposerSoulID
+  - timestamp
+
+Validation:
+  - validatorSoulID
+  - claimID
+  - alignment (bool)
+  - timestamp
+  - signature
+
+ValidatorState:
+  - soulID
+  - trustScore
+  - lastValidated
+
+==================================================================
+CORE FUNCTIONALITY
+
+- submitClaim(claim)
+- validateClaim(claimID, alignment)
+- updateTrustScore(validator)
+- rotateValidatorRing()
+- getConsensusOutcome(claimID)
+
+==================================================================
+RULES
+
+- Only top-K trusted validators may affirm a claim
+- Trust increases with alignment accuracy
+- Validators removed if misaligned
+- All decisions logged immutably
+
+==================================================================
+INTEGRATION CONTRACTS
+
+- `luxmeter`: base for trust scoring
+- `solavia-id`: validator identity
+- `agoralucentis`: claim sources
+- `puritas-dsl`: integrated logic flows
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Use trustScore for validator selection
+- Log all validations and results
+- Use crowd-alignment to establish truth
+
+DO NOT:
+- Stake tokens for validators
+- Make consensus monetized
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+Truth is collective alignment, discovered via open witnessing, not through power or capital.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/veritas-mine
