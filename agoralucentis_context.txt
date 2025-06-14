@@ -1,0 +1,109 @@
+SolaVia :: agoralucentis  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+The `agoralucentis` frontend is the civic TownSquare (“Agora Lucentis”) for posting, commenting, voting, and civic engagement. It connects UI to the smart contracts and other protocol modules.
+
+==================================================================
+MODULE NAME: agoralucentis  
+Purpose: Provide users and agents with UI/UX to participate in SolaVia civic discourse.
+
+DIRECTORY STRUCTURE
+
+agoralucentis/
+├── src/
+│   ├── components/         // Shared UI components
+│   ├── pages/              // Main pages (Feed, Profile, etc.)
+│   ├── api/                // Gateway to contracts
+│   ├── hooks/  
+│   └── utils/
+├── public/
+├── styles/
+├── types/                 // TS interfaces for data models
+├── tests/
+└── README.md
+
+==================================================================
+DESIGN PRINCIPLES
+
+- No downvotes—only constructive upvote system
+- Civic dialogue is public audit log
+- UX emphasizes clarity, consent, and radical transparency
+- Components correspond to on-chain events
+
+==================================================================
+KEY DATA TYPES
+
+Post:
+  - id
+  - contentIPFS
+  - authorSoulID
+  - timestamp
+  - signature
+
+Comment:
+  - id
+  - postID
+  - authorSoulID
+  - contentIPFS
+  - timestamp
+  - signature
+
+Vote:
+  - soulID
+  - targetID
+  - weight
+  - timestamp
+
+==================================================================
+CORE FUNCTIONALITY
+
+- fetchPosts(), fetchComments(postID)
+- submitPost(content), submitComment(postID, content)
+- votePost(postID)
+- flagContent(contentID)
+- showAnimaScore(soulID)
+- link to universal-access and voucher info
+
+==================================================================
+RULES
+
+- No downvote or delete – only hide mechanism
+- All user actions signed by SoulID
+- Use karma to weight content prominence
+- UI must show full audit transparency
+
+==================================================================
+INTEGRATION CONTRACTS
+
+- `luxmeter`: content => score
+- `charis-vouchers`: show voucher gifts on feed
+- `solavia-id`: author identification
+- `veritas-mine`: shows validator badges
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Ensure only upvotes, flag hides
+- Use signed author and timestamp fields
+- Reflect real-time AnimaScore
+- Link to SoulID/UIs
+
+DO NOT:
+- Allow delete or downvote
+- Obscure audit logs
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+Agora is marketplace of ideas—luminous, unfettered, and civil. It is where sovereignty speaks.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/agoralucentis
