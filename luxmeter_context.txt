@@ -1,0 +1,94 @@
+SolaVia :: luxmeter  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+The `luxmeter` module implements **AnimaScore**—the karma or reputation engine for SolaVia. It evolves contribution-based reputation tied to SoulIDs, decaying over time to prevent hoarding. Provides governance and visibility weight across the protocol.
+
+==================================================================
+MODULE NAME: luxmeter  
+Purpose: Score contributions to discourse, service, and alignment. Determine voice and access via AnimaScore.
+
+DIRECTORY STRUCTURE
+
+luxmeter/
+├── engine.rs               // Core score logic
+├── decay.rs                // Score decay over time
+├── events.rs               // Define events that alter score
+├── traits.rs               // Interfaces for inputs
+├── tests/                  // Test scenarios
+└── README.md
+
+==================================================================
+DESIGN PRINCIPLES
+
+- Reputation earned through contribution, not wealth.
+- Decays to encourage continued participation.
+- Fully auditable scoring chain—logged by TCCLogger.
+- Influences voice, priority, and module access.
+
+==================================================================
+KEY TYPES & SCHEMAS
+
+AnimaScoreChange:
+  - soul_id: SoulID
+  - delta: number
+  - reason: string
+  - timestamp: ISOString
+  - signature: Ed25519
+
+AnimaScoreSnapshot:
+  - soul_id
+  - total_score
+  - last_updated
+
+==================================================================
+CORE FUNCTIONALITY
+
+- changeScore(soul_id, delta, reason)
+- getScore(soul_id)
+- applyDecayAll()
+- getTopScores(limit)
+- integrateEvent(event: ContributionEvent)
+
+==================================================================
+RULES
+
+- All score increments require signed event proof.
+- Decay rate applied daily or per block.
+- Negative score capped at zero.
+- No manipulation via sock-puppets.
+
+==================================================================
+INTEGRATION CONTRACTS
+
+- `agoralucentis`: posts/votes produce contributions.
+- `charis-vouchers`: karma thresholds for voucher issuance.
+- `solavia-id`: SoulID as key.
+- `veritas-mine`: validator trust scoring.
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Use append-only score logs
+- Use decay logic to subtract over time
+- Keep all events traceable
+- Tie to SoulID
+
+DO NOT:
+- Allow direct score injection
+- Use wealth as proxy
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+Reputation is living light—it must breathe, ebb, and grow; never accumulate blindly.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/luxmeter
