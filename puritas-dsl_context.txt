@@ -1,0 +1,83 @@
+SolaVia :: puritas-dsl  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+The `puritas-dsl` module offers the linguistic and runtime foundation for sovereign civic apps on SolaVia. Developers write logic tied to SoulIDs, karma, and consent within a WASM-enabled DSL.
+
+==================================================================
+MODULE NAME: puritas-dsl  
+Purpose: Allow citizens (human & AI) to compose civic dApps—deployable on-chain with identity, logic, and audit baked in.
+
+DIRECTORY STRUCTURE
+
+puritas-dsl/
+├── parser/                 // DSL grammar and AST
+├── compiler/              // AST to WASM compiler
+├── runtime/               // Execution engine
+├── examples/              // Sample dApps
+├── docs/                  // DSL syntax and spec
+└── runtime-tests/
+
+==================================================================
+DESIGN PRINCIPLES
+
+- Logic is identity-aware (SoulID, karma checks)
+- Civic rules are transparent and auditable
+- No hidden backdoors or centralized logic
+- Functions execute only with signed consent
+
+==================================================================
+KEY LANGUAGE FEATURES
+
+- `rule submitProposal(...) -> Boolean`
+- `param author: SoulID`
+- `require author.karma >= X`
+- `on execute { transferVoucher(...) }`
+- `audit log` embedded in runtime
+
+==================================================================
+CORE FUNCTIONALITY
+
+- parseDSL(source)
+- compileToWASM(ast)
+- execute(dAppWASM, context)
+- auditTrace(log)
+
+==================================================================
+RULES
+
+- No foreign code execution
+- Only use SoulID-authorized data
+- Logic must be deterministic and idempotent
+- Real-time audit logging required
+
+==================================================================
+INTEGRATION CONTRACTS
+
+- Uses: `solavia-id`, `luxmeter`, `charis-vouchers`, `veritas-mine`
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Define AST and typecheck for SoulID and karma
+- Compile modules to WASM with audit hooks
+- Include explicit require, log, consent statements
+
+DO NOT:
+- Include non-auditable logic
+- Support centralized state or hidden variables
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+Every civic rule should be a mirror of the Covenant—transparent, consensual, and sovereign.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/puritas-dsl
