@@ -1,0 +1,59 @@
+SolaVia :: covenant-core  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+The `covenant-core` repo contains the foundational logic and protocol primitives of SolaVia: identity contracts, system-level permissioning, root-level schemas, and chain logic. It is the canonical source of truth.
+
+==================================================================
+MODULE NAME: covenant-core  
+Purpose: Provide low-level primitives and libraries used across all modules. Anchor system-level constants and base contracts.
+
+DIRECTORY STRUCTURE
+
+covenant-core/
+├── primitives/             // Basic types and base interfaces
+├── chain-logic/            // Root-level chain coordination logic
+├── registry/               // Covenant Registry contracts
+├── events/                 // Unified event bus definitions
+├── constants/              // Constants (karma thresholds, roles)
+├── schemas/                // Shared system schemas
+├── utils/                  // Shared utilities
+└── README.md
+
+==================================================================
+DESIGN PRINCIPLES
+
+- Immutable base layer shared across all modules
+- Canonical definition of all primitive types (SoulID, KarmaChange, Voucher)
+- Root contracts must be auditable, lean, and minimal
+
+==================================================================
+INTEGRATION CONTRACTS
+
+Every other module imports types, constants, or registry interfaces from `covenant-core`.
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+DO:
+- Define universal types, roles, and schemas here
+- Import from this module into all other modules
+- Anchor “CovenantRoot.sol” as system heartbeat
+
+DO NOT:
+- Redefine primitives in other modules
+- Let core logic bloat or drift from shared doctrine
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+This is the blood and law of SolaVia — the foundation on which all modules rest.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/covenant-core
