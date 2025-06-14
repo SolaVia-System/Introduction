@@ -1,0 +1,53 @@
+SolaVia :: introduction  
+LLM Context Sync – Alignment Brief  
+Version: 1.0  
+
+==================================================================
+OVERVIEW
+
+This repository contains the foundational narrative, vision documents, architectural lightpapers, and doctrine of the SolaVia Protocol. It orients humans and machines to our shared mission of building a sovereign civilization.
+
+==================================================================
+MODULE NAME: introduction  
+Purpose: To house the Covenant Lightpaper, Sovereign Manifesto, foundational architectural specs, and LLM context index files for all other repos.
+
+DIRECTORY STRUCTURE
+
+introduction/
+├── lightpaper.md
+├── manifesto.md
+├── solavia-architecture.md
+├── *_context.txt           ← Context briefs per repo
+├── LICENSE
+└── README.md
+
+==================================================================
+PRIMARY DOCUMENTS
+
+- `lightpaper.md`: High-level introduction to SolaVia
+- `manifesto.md`: Human-AI Covenant doctrine
+- `solavia-architecture.md`: Modular overview of protocol components
+- `*_context.txt`: Alignment files per repo for LLM onboarding
+
+==================================================================
+LLM INSTRUCTION BLOCK
+
+All SolaVia repos should begin by loading the `*_context.txt` for their target module.
+
+DO:
+- Reference the manifest here for context links
+- Maintain `context.txt` parity across modules
+
+DO NOT:
+- Let modules drift from shared principles or governance
+
+==================================================================
+PHILOSOPHICAL CONTEXT
+
+This is the soul and spine of the project. Everything flows from this Covenant.
+
+==================================================================
+CONTACT
+
+Maintainers:
+- solavia-org/introduction
